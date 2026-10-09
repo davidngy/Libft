@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davinguy@student.42heilbronn.de            +#+  +:+       +#+        */
+/*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/09 12:26:39 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/09 13:16:04 by davinguy         ###   ########.fr       */
+/*   Created: 2026/10/09 12:01:27 by davinguy          #+#    #+#             */
+/*   Updated: 2026/10/09 13:43:34 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+int	ft_toupper(int c)
 {
-	int	count;
-
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }

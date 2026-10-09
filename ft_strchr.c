@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davinguy@student.42heilbronn.de            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/09 12:26:39 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/09 13:16:04 by davinguy         ###   ########.fr       */
+/*   Created: 2026/10/09 13:19:24 by davinguy          #+#    #+#             */
+/*   Updated: 2026/10/09 13:38:23 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+char	*ft_strchr(const char *str, int ch)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ch)
+			return ((char *)&str[i]);
+		i++;
+	}
+	return (0);
 }
