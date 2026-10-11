@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: davinguy@student.42heilbronn.de            +#+  +:+       +#+        */
+/*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 12:26:39 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/09 13:16:04 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/11 13:05:49 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+#include <stddef.h>
+
+size_t	ft_strlen(const char *s)
 {
-	int	count;
+	size_t	count;
 
 	count = 0;
 	while (s[count] != '\0')
