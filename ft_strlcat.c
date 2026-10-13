@@ -6,13 +6,11 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 14:08:27 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/11 15:25:43 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/12 13:41:45 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdio.h>
-#include <bsd/string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
@@ -34,27 +32,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		i++;
 	}
 	dst_len = i;
-	while ((i < dstsize) && (src[src_i] != '\0'))
+	while ((i < dstsize - 1) && (src[src_i] != '\0'))
 	{
-		dst[i] = src[src_i];
-		i++;
-		src_i++;
+		dst[i++] = src[src_i++];
 	}
 	dst[i] = '\0';
-	printf("%zu, %zu\n", dst_len, src_size);
 	return (dst_len + src_size);
-}
-
-int main()
-{
-	char src[] = " World!";
-	char dst[8] = "Hello";
-
-	char src1[] = " World!";
-	char dst1[8] = "Hello";
-
-	size_t len = ft_strlcat(dst, src, 8);
-	size_t len_orig = strlcat(dst1, src1, 8);
-	printf("%s, %zu\n", dst, len);
-	printf("%s, %zu", dst1, len_orig);
 }
