@@ -6,11 +6,11 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 14:08:27 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/12 13:41:45 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/15 17:27:44 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

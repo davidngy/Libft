@@ -6,15 +6,15 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 12:07:43 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/13 12:33:03 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/15 17:25:24 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	*dst_c;
 	unsigned char	*src_c;
 

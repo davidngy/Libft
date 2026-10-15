@@ -6,11 +6,11 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 12:15:03 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/14 12:15:03 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/15 17:24:53 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
