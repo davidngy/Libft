@@ -6,47 +6,56 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 16:06:25 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/18 16:06:25 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/19 16:03:40 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	unsigned int		start;
 	unsigned int		end;
-	int					j;
-	char 	*trim;
-	
+	char				*trim;
+
 	start = 0;
-	end = ft_strlen(s1) - 1;
-	j = 0;
-	while (s1[start] == set[j])
+	end = ft_strlen(s1);
+	while (((ft_strchr(set, s1[start]) != 0)
+			|| (ft_strchr(set, s1[end]) != 0))
+		&& (end > start) && (end > 0))
 	{
-		start++;
-		j++;
-		if (j == (ft_strlen(set)))
-			j = 0;
+		if (ft_strchr(set, s1[start]) != 0)
+			start++;
+		if (ft_strchr(set, s1[end]) != 0)
+			end--;
 	}
-	j = ft_strlen(set) - 1;
-	while (s1[end] == set[j])
+	if (start >= end)
 	{
-		end--;
-		j--;
-		if (j == -1)
-			j = ft_strlen(set) -  1;
+		trim = malloc(1);
+		if (!trim)
+			return (NULL);
+		*trim = '\0';
 	}
-	trim = malloc(ft_strlen(ft_substr(s1, start, end - start)) + 1);
-	if(trim == NULL)
-		return (NULL);
-	trim = ft_substr(s1, start, (end - start) + 1);
+	else
+		trim = ft_substr(s1, start, end - start);
 	return (trim);
 }
 
-int main()
-{
-	char *str = ft_strtrim("xwzxwzxwzzhellozxwz", "xwz");
-	printf("%s", str);
-}
+// int main()
+// {
+// 	char *str = ft_strtrim("   Hello   ", " ");
+// 	printf("%s\n", str);
+// 	free(str);
+// 	char *str1 = ft_strtrim("xxxHelloxxx", "x");
+// 	printf("%s\n", str1);
+// 	free(str1);
+// 	char *str2 = ft_strtrim("Hello", "x");
+// 	printf("%s\n", str2);
+// 	free(str2);
+// 	char *str3 = ft_strtrim("aaaa", "a");
+// 	printf("%s\n", str3);
+// 	free(str3);
+// 	char *str4 = ft_strtrim("", " ");
+// 	printf("%s\n", str4);
+// 	free(str4);
+// }
