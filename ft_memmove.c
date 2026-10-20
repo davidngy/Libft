@@ -6,28 +6,29 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 12:55:31 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/19 14:56:27 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/20 16:19:15 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
+#include <stdio.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*dst_c;
-	unsigned char	*src_c;
+	unsigned char		*dst_c;
+	const unsigned char	*src_c;
 	size_t			i;
 
 	i = 0;
-	dst_c = (unsigned char *) dst;
-	src_c = (unsigned char *) src;
+	dst_c = dst;
+	src_c = src;
 	if (dst_c > src_c)
 	{
-		i = len - 1;
-		while (i >= 0)
+		i = len;
+		while (i > 0)
 		{
+			--i;
 			dst_c[i] = src_c[i];
-			i--;
 		}
 	}
 	else if (src_c > dst_c)
@@ -44,9 +45,9 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 // int	main()
 // {
 // 	char	src[] ="ABCDE";
-// 	char	src1[] ="ABCDE";
-// 	memmove(src1 + 2, src1, 3);
-// 	ft_memmove(src + 2, src, 3);
-// 	printf("%s\n", src);
-// 	printf("%s", src1);
+// 	char	dest[] ="conseipsum dolor sit a";
+// 	// memmove(dest, "consectetur", 5);
+// 	ft_memmove(dest, "consectetur", 5);
+// 	printf("%s\n", dest);
+// 	// printf("%s", src1);
 // }

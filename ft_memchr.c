@@ -6,7 +6,7 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 11:46:26 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/15 17:24:27 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/20 17:38:29 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (ptr[i] == c)
-			return (&ptr[i]);
+			return ((void *) &s[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 // int	main()

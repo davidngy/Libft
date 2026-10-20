@@ -11,33 +11,37 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-char	**ft_split(char const *s, char c)
+static size_t	count_words(char const *s, char c)
+{
+	int		i;
+	size_t	words;
+
+	words = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		while (s[i] == c && s[i] != '\0')
+			i++;
+		if (s[i] != c && s[i] != '\0')
+		{
+			while (s[i] != c && s[i] != '\0')
+				i++;
+			words++;
+		}
+	}
+	return (words);
+}
+
+static int	fill_words(size_t split_len, const char *s, char c, char **split)
 {
 	unsigned int	i;
 	unsigned int	j;
 	unsigned int	k;
-	unsigned int	len;
-	unsigned int	split_len;
-	char	**split;
+	size_t			len;
 
-	split_len = 0;
 	i = 0;
-	while(s[i] != '\0')
-	{
-		while (s[i] == c && s[i] != '\0')
-			i++;	
-		if(s[i] != c && s[i] != '\0')
-		{
-			while (s[i] != c && s[i] != '\0')
-				i++;
-			split_len++;
-		}
-	}
-	split = malloc(sizeof(char *) * (split_len + 1));
-	i = 0;
-	j = i;
+	j = 0;
 	while (i < split_len)
 	{
 		while (s[j] == c && s[j] != '\0')
@@ -49,21 +53,36 @@ char	**ft_split(char const *s, char c)
 			len++;
 			j++;
 		}
-		split[i] = ft_substr(s, k, len);	
+		split[i] = ft_substr(s, k, len);
+		if (!split[i])
+			return (0);
 		i++;
 	}
 	split[i] = NULL;
-	return split;
+	return (1);
 }
 
-int main()
+char	**ft_split(char const *s, char c)
 {
-	char *test = "HEyalesakioralje";
-	char **inHere = ft_split(test, 'a');
-	for(int i = 0; i < 5; i++)
-	{
-		printf("%s\n", inHere[i]);
-		free(inHere[i]);
-	}
-	free(inHere);
+	size_t		split_len;
+	char		**split;
+
+	split_len = count_words(s, c);
+	split = malloc(sizeof(char *) * (split_len + 1));
+	if (!split)
+		return (NULL);
+	fill_words(split_len, s, c, split);
+	return (split);
 }
+
+// int main()
+// {
+// 	char *test = "HEyalesakioralje";
+// 	char **inHere = ft_split(test, 'a');
+// 	for(int i = 0; i <= 4; i++)
+// 	{
+// 		printf("%s\n", inHere[i]);
+// 		free(inHere[i]);
+// 	}
+// 	free(inHere);
+// }

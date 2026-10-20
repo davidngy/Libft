@@ -6,7 +6,7 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 10:34:24 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/15 17:26:23 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/20 15:04:10 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	*ft_memset(void *s, int c, size_t n)
 		pt[i] = c;
 		i++;
 	}
-	return (0);
+	return (s);
 }
