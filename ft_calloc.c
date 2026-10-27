@@ -6,7 +6,7 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 12:49:35 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/18 12:49:35 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/27 16:33:09 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,7 @@ void	*ft_calloc(size_t nmeb, size_t size)
 	void	*ptr;
 
 	if ((nmeb == 0) || (size) == 0)
-	{
-		nmeb = 1;
-		size = 1;
-	}
+		return (malloc(0));
 	if (nmeb > (SIZE_MAX / size))
 		return (NULL);
 	ptr = malloc(nmeb * size);
