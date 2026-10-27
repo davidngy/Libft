@@ -33,6 +33,20 @@ static size_t	count_words(char const *s, char c)
 	return (words);
 }
 
+static int	clear_arr(char **split, unsigned int fail)
+{
+	unsigned int		i;
+
+	i = 0;
+	while (i < fail)
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	return (0);
+}
+
 static int	fill_words(size_t split_len, const char *s, char c, char **split)
 {
 	unsigned int	i;
@@ -55,7 +69,7 @@ static int	fill_words(size_t split_len, const char *s, char c, char **split)
 		}
 		split[i] = ft_substr(s, k, len);
 		if (!split[i])
-			return (0);
+			return (clear_arr(split, i));
 		i++;
 	}
 	split[i] = NULL;
@@ -66,12 +80,15 @@ char	**ft_split(char const *s, char c)
 {
 	size_t		split_len;
 	char		**split;
+	int			clean;
 
 	split_len = count_words(s, c);
 	split = malloc(sizeof(char *) * (split_len + 1));
 	if (!split)
 		return (NULL);
-	fill_words(split_len, s, c, split);
+	clean = fill_words(split_len, s, c, split);
+	if (!clean)
+		return (NULL);
 	return (split);
 }
 

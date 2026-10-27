@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_atoi(const char *nptr)
 {
 	int	i;
@@ -38,6 +40,6 @@ int	ft_atoi(const char *nptr)
 
 // int main()
 // {
-// 	int	mine = ft_atoi("-83647");
+// 	int	mine = ft_atoi("-2147483648");
 // 	printf("mine: %d", mine);
 // }

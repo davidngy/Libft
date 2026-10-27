@@ -6,15 +6,21 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 14:11:48 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/23 14:25:13 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/23 17:23:02 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
 	new->next = *lst;
 	*lst = new;
 }

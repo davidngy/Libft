@@ -6,7 +6,7 @@
 /*   By: davinguy <davinguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 14:55:40 by davinguy          #+#    #+#             */
-/*   Updated: 2026/10/23 15:10:08 by davinguy         ###   ########.fr       */
+/*   Updated: 2026/10/24 13:23:50 by davinguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
+	if (new == NULL || lst == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
 	last = ft_lstlast(*lst);
 	last->next = new;
 }
